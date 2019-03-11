@@ -1,4 +1,5 @@
-# Copyright (c) 2015–2016 Molly White
+# coding: utf-8
+# Copyright 2015–2016 Molly White
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -32,9 +33,13 @@ logfile_name = bot_username + ".log"
 
 
 def create_tweet():
-    """Create the text of the tweet you want to send."""
+    #"""Create the text of the tweet you want to send."""
+   
+   
     # Replace this with your code!
-    text = ""
+    text = "check "
+    text2 = "\n ~ enter"
+    text = text + text2
     return text
 
 
@@ -59,7 +64,7 @@ def log(message):
     path = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
     with open(os.path.join(path, logfile_name), 'a+') as f:
         t = strftime("%d %b %Y %H:%M:%S", gmtime())
-        f.write("\n" + t + " " + message)
+        f.write("\n" + t + " " + str(message))
 
 
 if __name__ == "__main__":
