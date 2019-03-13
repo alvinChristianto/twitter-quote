@@ -22,8 +22,9 @@
 import os
 import tweepy
 from secrets import *
+from quotes import *
 from time import gmtime, strftime
-
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 # ====== Individual bot configuration ==========================
 bot_username = ''
@@ -34,12 +35,12 @@ logfile_name = bot_username + ".log"
 
 def create_tweet():
     #"""Create the text of the tweet you want to send."""
+    QUOTE, AUTHOR = getData()
    
-   
-    # Replace this with your code!
-    text = "check "
+    # Replace this with your code
+    text = "check" 
     text2 = "\n ~ enter"
-    text = text + text2
+    text = QUOTE + "\n ~ " + AUTHOR
     return text
 
 
@@ -52,6 +53,7 @@ def tweet(text):
 
     # Send the tweet and log success or failure
     try:
+        #print "result "+ text
         api.update_status(text)
     except tweepy.error.TweepError as e:
         log(e.message)
@@ -66,7 +68,8 @@ def log(message):
         t = strftime("%d %b %Y %H:%M:%S", gmtime())
         f.write("\n" + t + " " + str(message))
 
-
+sched = BlockingScheduler()
+@sched.schedued_job('cron', day_of_week ='mon-sun', hour=11)
 if __name__ == "__main__":
     tweet_text = create_tweet()
     tweet(tweet_text)
