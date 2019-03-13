@@ -69,7 +69,9 @@ def log(message):
         f.write("\n" + t + " " + str(message))
 
 sched = BlockingScheduler()
-@sched.schedued_job('cron', day_of_week ='mon-sun', hour=11)
+@sched.scheduled_job('', day_of_week ='mon-sun', hour=11)
 if __name__ == "__main__":
     tweet_text = create_tweet()
     tweet(tweet_text)
+
+sched.start()
