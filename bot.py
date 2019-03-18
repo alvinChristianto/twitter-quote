@@ -53,8 +53,8 @@ def tweet(text):
 
     # Send the tweet and log success or failure
     try:
-        #print "result "+ text
-        api.update_status(text)
+        print "result "+ text
+        #api.update_status(text)
     except tweepy.error.TweepError as e:
         log(e.message)
     else:
@@ -68,10 +68,8 @@ def log(message):
         t = strftime("%d %b %Y %H:%M:%S", gmtime())
         f.write("\n" + t + " " + str(message))
 
-sched = BlockingScheduler()
-@sched.scheduled_job('', day_of_week ='mon-sun', hour=11)
+
 if __name__ == "__main__":
     tweet_text = create_tweet()
     tweet(tweet_text)
 
-sched.start()
