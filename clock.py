@@ -22,8 +22,8 @@ def timed_job():
 
     # Send the tweet and log success or failure
     try:
-        print "result "+ text
-        #api.update_status(text)
+        #print "result "+ text
+        api.update_status(text)
     except tweepy.error.TweepError as e:
         pass#log(e.message)
     else:
