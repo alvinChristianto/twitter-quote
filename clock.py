@@ -24,8 +24,8 @@ def scheduled_job():
     try:
 
         api.update_status(text)
-        print "result : "+ text
-        print "len Quotes :"+ len(QUOTE)
+        print("result : "+ text)
+        print("len Quotes :"+ len(QUOTE))
     except tweepy.error.TweepError as e:
         pass#log(e.message)
     else:
