@@ -40,7 +40,7 @@ def create_tweet():
     # Replace this with your code
     text = "check" 
     text2 = "\n ~ enter"
-    text = QUOTE + "\n ~ " + AUTHOR
+    text = QUOTE + "\n > " + AUTHOR
     return text
 
 
