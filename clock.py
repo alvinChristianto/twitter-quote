@@ -14,7 +14,7 @@ def scheduled_job():
    
     # Twitter authentication
     QUOTE, AUTHOR = getData() 
-    text = QUOTE + "\n ~ " + AUTHOR
+    text = QUOTE + "\n by ~  " + AUTHOR
     
     auth = tweepy.OAuthHandler(C_KEY, C_SECRET)
     auth.set_access_token(A_TOKEN, A_TOKEN_SECRET)
